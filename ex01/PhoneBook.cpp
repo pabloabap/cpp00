@@ -1,7 +1,18 @@
-// CABECERA
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/09 13:28:41 by pabad-ap          #+#    #+#             */
+/*   Updated: 2024/12/09 20:12:02 by pabad-ap         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
 #include "PhoneBook.hpp"
+
+int PhoneBook::_contacts_counter = 0;
 
 PhoneBook::PhoneBook(void)
 {
@@ -14,28 +25,57 @@ PhoneBook::PhoneBook(void)
 	std::cout << " contact info"<< std::endl;
 	std::cout << "EXIT - Close the PhoneBook lossing all contact" \
 		<< std::endl;
-}
+};
 
 PhoneBook::~PhoneBook(void)
 {
 	std::cout << "Destructor called" << std::endl;
-}
+};
 
 void PhoneBook::getContact(int id) const
 {
-
-
-
-
-}
+	std::cout << "getContact called" << std::endl;
+};
 
 
 void PhoneBook::_getSavedContacts(void) const
 {
 	for (int i = 0; i < MAX_CONTACTS; ++i)
 	{
-		std::cout << "INDEX | FIRST NAME | LAST NAME | NICK NAME" << std:endl;
+		std::cout << "INDEX | FIRST NAME | LAST NAME | NICK NAME" << std::endl;
 	}
-}
+};
+
+void PhoneBook::setContact(void)
+{
+	std::string	first_name;
+	std::string	last_name; 
+	std::string	nick_name; 
+	std::string	phone;
+	std::string	darksecret;
+
+	first_name = PhoneBook::_fillInfo("FIRST NAME: ");
+	last_name = PhoneBook::_fillInfo("LAST NAME: ");
+	nick_name = PhoneBook::_fillInfo("NICKNAME: ");
+	phone = PhoneBook::_fillInfo("PHONE NUMBER: ");
+	darksecret = PhoneBook::_fillInfo("DARKSECRET: ");
+	this->_contact[PhoneBook::_contacts_counter % MAX_CONTACTS] = \
+		Contact(first_name, last_name, nick_name, phone, darksecret);
+	PhoneBook::_contacts_counter += 1;
+};
 
 
+std::string	PhoneBook::_fillInfo(std::string inPrompt)
+{
+	std::string line;
+	
+	std::cout << inPrompt;
+	while (std::getline(std::cin, line).good()){
+		if(line.empty()){
+			std::cout << inPrompt;
+		}
+		else if (line.length() > 0)
+			break;
+	}
+	return (line);
+};

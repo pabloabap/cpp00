@@ -1,4 +1,14 @@
-// CABECERA
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/09 12:46:25 by pabad-ap          #+#    #+#             */
+/*   Updated: 2024/12/09 19:44:42 by pabad-ap         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "main.hpp"
 
@@ -10,9 +20,13 @@ int main (void)
 	while (input.compare("EXIT") != 0)
 	{
 		std::cout << "Enter a command: ";
-		std::getline(std::cin, input);
+		if (!(std::getline(std::cin, input).good()))
+			break;
 		if (0 == input.compare("ADD"))
+		{
 			std::cout << "ADD selected" << std::endl;
+			phone_book.setContact();
+		}
 		else if (0 == input.compare("SEARCH"))
 			std::cout << "SEARCH selected" << std::endl;
 		else if (0 == input.compare("EXIT"))
