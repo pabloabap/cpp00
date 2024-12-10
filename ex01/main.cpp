@@ -16,24 +16,34 @@ int main (void)
 {
 	PhoneBook	phone_book;
 	std::string	input ("\0");
+	int		status;
 
-	while (input.compare("EXIT") != 0)
+	input = "\0";
+	status = 0;
+	try
 	{
-		std::cout << "Enter a command: ";
-		if (!(std::getline(std::cin, input).good()))
-			break;
-		if (0 == input.compare("ADD"))
+		while (input.compare("EXIT") != 0)
 		{
-			std::cout << "ADD selected" << std::endl;
-			phone_book.setContact();
+			std::cout << "Enter a command: ";
+			std::getline(std::cin, input);
+			std::cin.exceptions(~std::cin.goodbit);
+			if (0 == input.compare("ADD"))
+			{
+				std::cout << "ADD selected" << std::endl;
+				phone_book.setContact();
+			}
+			else if (0 == input.compare("SEARCH"))
+				std::cout << "SEARCH selected" << std::endl;
+			else if (0 == input.compare("EXIT"))
+				std::cout << "EXIT selected" << std::endl;
+			else
+				std::cout << "Invalid command. Acepted commands: " \
+					<< "[ADD] [SEARCH] [EXIT]" << std::endl;
 		}
-		else if (0 == input.compare("SEARCH"))
-			std::cout << "SEARCH selected" << std::endl;
-		else if (0 == input.compare("EXIT"))
-			std::cout << "EXIT selected" << std::endl;
-		else
-			std::cout << "Invalid command. Acepted commands: " \
-				<< "[ADD] [SEARCH] [EXIT]" << std::endl;
 	}
-	return (0);
+	catch (std::exception& e)
+	{
+		std::cerr << "\nCaught exception: " << e.what() << std::endl;
+	}
+	return (status);
 }

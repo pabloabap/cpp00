@@ -30,6 +30,11 @@ Contact::~Contact(void) {
 	std::cout <<"Contact destructor" << std::endl;
 }
 
+std::string Contact::getContactInfo(std::string attribute) {
+	
+	return (this->_first_name);
+}
+
 /*
 <CLASS_NAME>::<CLASS_NAME>(void) {
 	...

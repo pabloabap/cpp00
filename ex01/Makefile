@@ -14,7 +14,9 @@ NAME		= PhoneBook
 CPP			= g++
 CPP_FLAGS	= -Wall -Wextra -Werror -std=98 -pedantic
 
-SRC		= ./Contact.cpp ./PhoneBook.cpp ./main.cpp 
+SRC		= ./main.cpp	\
+		./Contact.cpp	\
+		./PhoneBook.cpp
 
 OBJ		= $(SRC:.cpp=.o)
 

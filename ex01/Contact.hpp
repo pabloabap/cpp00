@@ -24,6 +24,8 @@ class Contact {
 			std::string nickname, std::string phone_number, \
 			std::string darksecret);
 		~Contact(void);
+		
+		std::string	getContactInfo(std::string);	
 	private:
 		std::string	_first_name;
 		std::string	_last_name;

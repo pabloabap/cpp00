@@ -42,7 +42,7 @@ void PhoneBook::_getSavedContacts(void) const
 {
 	for (int i = 0; i < MAX_CONTACTS; ++i)
 	{
-		std::cout << "INDEX | FIRST NAME | LAST NAME | NICK NAME" << std::endl;
+		std::cout << "INDEX: " << std::endl;
 	}
 };
 
@@ -55,10 +55,15 @@ void PhoneBook::setContact(void)
 	std::string	darksecret;
 
 	first_name = PhoneBook::_fillInfo("FIRST NAME: ");
+	std::cin.exceptions(~std::cin.goodbit);
 	last_name = PhoneBook::_fillInfo("LAST NAME: ");
+	std::cin.exceptions(~std::cin.goodbit);
 	nick_name = PhoneBook::_fillInfo("NICKNAME: ");
+	std::cin.exceptions(~std::cin.goodbit);
 	phone = PhoneBook::_fillInfo("PHONE NUMBER: ");
+	std::cin.exceptions(~std::cin.goodbit);
 	darksecret = PhoneBook::_fillInfo("DARKSECRET: ");
+	std::cin.exceptions(~std::cin.goodbit);
 	this->_contact[PhoneBook::_contacts_counter % MAX_CONTACTS] = \
 		Contact(first_name, last_name, nick_name, phone, darksecret);
 	PhoneBook::_contacts_counter += 1;
