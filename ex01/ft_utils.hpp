@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   ft_utils.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 13:58:31 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/10 20:17:06 by pabad-ap         ###   ########.fr       */
+/*   Created: 2024/12/10 21:26:28 by pabad-ap          #+#    #+#             */
+/*   Updated: 2024/12/10 23:30:29 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef FT_UTILS_H
+# define FT_UTILS_H
 
 # include <iostream>
 # include <string>
-# include "PhoneBook.hpp"
-# include "Contact.hpp"
-//nclude "<CLASS_NAME>.hpp"
+
+enum e_attribute
+{
+	FIRST_NAME,
+	LAST_NAME,
+	NICK_NAME,
+	PHONE_NUMBER,
+	DARKEST_SECRET
+};
 
 void	ft_trim(std::string &str);
-
 #endif

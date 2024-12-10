@@ -6,7 +6,7 @@
 #    By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 12:47:07 by pabad-ap          #+#    #+#              #
-#    Updated: 2024/12/09 15:12:17 by pabad-ap         ###   ########.fr        #
+#    Updated: 2024/12/10 21:31:55 by pabad-ap         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CPP_FLAGS	= -Wall -Wextra -Werror -std=98 -pedantic
 
 SRC		= ./main.cpp	\
 		./Contact.cpp	\
-		./PhoneBook.cpp
+		./PhoneBook.cpp	\
+		./ft_utils.cpp
 
 OBJ		= $(SRC:.cpp=.o)
 

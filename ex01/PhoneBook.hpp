@@ -6,7 +6,7 @@
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:29:11 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/09 20:12:38 by pabad-ap         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:33:05 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 #  define MAX_CONTACTS 8
 # endif
 
-# include "Contact.hpp"
 # include <stdlib.h>
+# include "Contact.hpp"
+# include "ft_utils.hpp"
 
 class PhoneBook {
 	public:		

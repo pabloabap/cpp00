@@ -6,7 +6,7 @@
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:28:41 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/09 20:12:02 by pabad-ap         ###   ########.fr       */
+/*   Updated: 2024/12/10 23:28:38 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,26 @@ PhoneBook::~PhoneBook(void)
 void PhoneBook::getContact(int id) const
 {
 	std::cout << "getContact called" << std::endl;
+	PhoneBook::_getSavedContacts();
 };
 
 
 void PhoneBook::_getSavedContacts(void) const
 {
+	std::string *info;
+
 	for (int i = 0; i < MAX_CONTACTS; ++i)
 	{
-		std::cout << "INDEX: " << std::endl;
+		 std::cout << "FIRST_NAME: " << \
+			 this->_contact[i].getContactInfo(FIRST_NAME) << std::endl;
+		 std::cout << "LAST_NAME: " << \
+			 this->_contact[i].getContactInfo(LAST_NAME) << std::endl;
+		 std::cout << "NICK_NAME: " << \
+			 this->_contact[i].getContactInfo(NICK_NAME) << std::endl;
+		 std::cout << "PHONE_NUMBER: " << \
+			 this->_contact[i].getContactInfo(PHONE_NUMBER) << std::endl;
+		 std::cout << "DARKEST: " << \
+			 this->_contact[i].getContactInfo(DARKEST_SECRET) << std::endl;
 	}
 };
 
@@ -75,7 +87,9 @@ std::string	PhoneBook::_fillInfo(std::string inPrompt)
 	std::string line;
 	
 	std::cout << inPrompt;
-	while (std::getline(std::cin, line).good()){
+	while (std::getline(std::cin, line).good())
+	{
+		ft_trim(line);	
 		if(line.empty()){
 			std::cout << inPrompt;
 		}

@@ -6,7 +6,7 @@
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:46:25 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/09 19:44:42 by pabad-ap         ###   ########.fr       */
+/*   Updated: 2024/12/10 22:33:42 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ int main (void)
 				phone_book.setContact();
 			}
 			else if (0 == input.compare("SEARCH"))
+			{
 				std::cout << "SEARCH selected" << std::endl;
+				phone_book.getContact(0);
+			}
 			else if (0 == input.compare("EXIT"))
 				std::cout << "EXIT selected" << std::endl;
 			else
@@ -43,7 +46,7 @@ int main (void)
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << "\nCaught exception: " << e.what() << std::endl;
+		std::cout << "\nCaught exception: " << e.what() << std::endl;
 	}
 	return (status);
 }

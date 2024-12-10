@@ -6,7 +6,7 @@
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:53:56 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/09 17:33:59 by pabad-ap         ###   ########.fr       */
+/*   Updated: 2024/12/10 23:29:35 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include  <iostream>
 # include <string>
+# include "ft_utils.hpp"
 
 class Contact {
 	public:
@@ -25,7 +26,7 @@ class Contact {
 			std::string darksecret);
 		~Contact(void);
 		
-		std::string	getContactInfo(std::string);	
+		std::string getContactInfo(int attribute) const;
 	private:
 		std::string	_first_name;
 		std::string	_last_name;
