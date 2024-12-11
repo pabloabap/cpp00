@@ -26,5 +26,6 @@ void	ft_trim(std::string &str)
 		str.pop_back();
 	}
 	if (str.empty())
-		std::cout << "Field mustn't be empty or spaces string." << std::endl;
+		std::cout << "Field mustn't be empty or spaces string." \
+			<< " Enter a valid string." << std::endl;
 }

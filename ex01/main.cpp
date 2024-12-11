@@ -12,41 +12,47 @@
 
 #include "main.hpp"
 
+void	ft_execute(void);
+
 int main (void) 
 {
-	PhoneBook	phone_book;
-	std::string	input ("\0");
-	int		status;
-
-	input = "\0";
-	status = 0;
 	try
 	{
-		while (input.compare("EXIT") != 0)
-		{
-			std::cout << "Enter a command: ";
-			std::getline(std::cin, input);
-			std::cin.exceptions(~std::cin.goodbit);
-			if (0 == input.compare("ADD"))
-			{
-				std::cout << "ADD selected" << std::endl;
-				phone_book.setContact();
-			}
-			else if (0 == input.compare("SEARCH"))
-			{
-				std::cout << "SEARCH selected" << std::endl;
-				phone_book.getContact(0);
-			}
-			else if (0 == input.compare("EXIT"))
-				std::cout << "EXIT selected" << std::endl;
-			else
-				std::cout << "Invalid command. Acepted commands: " \
-					<< "[ADD] [SEARCH] [EXIT]" << std::endl;
-		}
+		ft_execute();
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "\nCaught exception: " << e.what() << std::endl;
+		std::cout << "Caught exception: " << e.what() << std::endl;
+		std::cout.exceptions(~std::cout.goodbit);
 	}
-	return (status);
+	return (0);
 }
+
+/** Contain the execution logic of the program, all the instructiosn
+ * to process until end of program or failure.
+ */
+void	ft_execute(void)
+{
+	std::string	input;
+	PhoneBook	phone_book;
+
+	while (input.compare("EXIT") != 0)
+	{
+		std::cout << "Enter `SEARCH`, `ADD` or `EXIT`" << std::endl;
+		std::cout.exceptions(~std::cout.goodbit);
+		std::getline(std::cin, input);
+		std::cin.exceptions(~std::cin.goodbit);
+		if (0 == input.compare("ADD"))
+			phone_book.setContact();
+		else if (0 == input.compare("SEARCH"))
+			phone_book.getContact();
+
+		else if (0 != input.compare("EXIT"))
+		{
+			std::cout << "Invalid command. Try: " \
+				<< "`ADD` `SEARCH` `EXIT`" \
+				<< std::endl;
+			std::cout.exceptions(~std::cout.goodbit);
+		}
+	}
+};

@@ -12,12 +12,20 @@
 
 #include "Contact.hpp"
 
+/** 
+ * Contact default constructor, initialize it empty
+ */
 Contact::Contact(void) {
-	std::cout <<"Contact constructor" << std::endl;
 }
 
+/**
+ * Alternative constructor. If `first_name`, `last_name`, `nickname`, 
+ * `phone_number`and `darlsecret`are passed as argumnets Contact with 
+ * filled attributes will be generated
+ */
 Contact::Contact(std::string first_name, std::string last_name, \
-		std::string nickname, std::string phone_number, std::string darksecret)
+		std::string nickname, std::string phone_number, \
+		std::string darksecret)
 {
 	this->_first_name = first_name;
 	this->_last_name = last_name;
@@ -26,10 +34,17 @@ Contact::Contact(std::string first_name, std::string last_name, \
 	this->_darkest_secret = darksecret;	
 };
 
+/**
+ * Default destructor.
+ */
 Contact::~Contact(void) {
-	std::cout <<"Contact destructor" << std::endl;
 };
 
+/**
+ * Return a string with the `attribute` of the contact specified as argument.
+ * @param `attribute` Item from `e_attribute` enum from `ft_utils.hpp`.
+ * @return Content of the attribute as string.
+ */
 std::string	Contact::getContactInfo(int attribute) const
 {	
 	std::string output;
@@ -43,17 +58,7 @@ std::string	Contact::getContactInfo(int attribute) const
 		output = this->_nickname;
 	else if (PHONE_NUMBER == attribute)
 		output = this->_phone_number;
-	else if (DARKNEST_SECRET == attribute)
+	else if (DARKEST_SECRET == attribute)
 		output = this->_darkest_secret;
 	return (output);
 };
-
-/*
-<CLASS_NAME>::<CLASS_NAME>(void) {
-	...
-}
-
-
-<CLASS_NAME>::<CLASS_NAME>(void) {
-	...
-}*/

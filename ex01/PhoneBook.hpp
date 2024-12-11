@@ -18,6 +18,7 @@
 # endif
 
 # include <stdlib.h>
+# include <iomanip>
 # include "Contact.hpp"
 # include "ft_utils.hpp"
 
@@ -26,19 +27,24 @@ class PhoneBook {
 		PhoneBook(void);
 		~PhoneBook(void);
 		
-		void	getContact(int id) const;
-		void	setContact(void);
-//		...
+		void		setContact(void);
+		void		getContact(void) const;
 	private:
-		static int _contacts_counter;
+		static int 	_contacts_counter;
 
-		Contact _contact[MAX_CONTACTS];
-		void	_getSavedContacts(void) const;
-		void	_getSearchedContact(int id) const;
+		Contact		_contact[MAX_CONTACTS];
+
+		void		_getSavedContacts(void) const;
+		void		_formatSavedContactAttribute(std::string str) \
+					const;
 		std::string	_fillInfo(std::string inPrompt);
-		
-//	protected:
-//		...
+		int		_phoneNumberChecker(const std::string &str, \
+					const std::string &inPrompt) const;
+		void		_getSavedHeader(void) const;
+		void		_getSavedFooter(void) const;
+		void		_getContactDetails(void) const;
+		void		_getContactByIndex(std::string input) const;
+		void		_displayContactDetails(int zero_index) const;
 };
 
 #endif

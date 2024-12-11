@@ -19,22 +19,19 @@
 
 class Contact {
 	public:
-//		...
 		Contact(void);
 		Contact(std::string first_name, std::string last_name, \
 			std::string nickname, std::string phone_number, \
 			std::string darksecret);
 		~Contact(void);
 		
-		std::string getContactInfo(int attribute) const;
+		std::string 	getContactInfo(int attribute) const;
 	private:
 		std::string	_first_name;
 		std::string	_last_name;
 		std::string	_nickname;
 		std::string	_phone_number;
 		std::string	_darkest_secret;
-//	protected:
-//		...
 };
 
 #endif
