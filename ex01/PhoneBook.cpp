@@ -279,6 +279,7 @@ void	PhoneBook::_getContactByIndex(std::string input) const
 	}
 	catch(...)
 	{
+		std::cin.exceptions(~std::cin.goodbit);
 		std::cout << "Index must be an integer." << std::endl;
 		std::cout.exceptions(~std::cout.goodbit);
 		this->_getContactDetails();
