@@ -150,15 +150,17 @@ void PhoneBook::_getSavedContacts(void) const
 	{
 		if (!this->_contact[i].getContactInfo(FIRST_NAME).empty())
 		{
-			std::cout << "|" << std::setw(10) << i + 1 << "|";
-			std::cout.exceptions(~std::cout.goodbit);
-			this->_formatSavedContactAttribute(\
-				this->_contact[i].getContactInfo(FIRST_NAME));
-			this->_formatSavedContactAttribute(\
-				this->_contact[i].getContactInfo(LAST_NAME));
-			this->_formatSavedContactAttribute(\
-				this->_contact[i].getContactInfo(NICK_NAME));
-			std::cout << std::endl;
+			std::cout << "|" << std::setw(10) << i + 1 << "|"
+				<< std::setw(10) << this->_displayContactAttribute(\
+					this->_contact[i]\
+						.getContactInfo(FIRST_NAME)) << "|"
+				<< std::setw(10) << this->_displayContactAttribute(\
+					this->_contact[i]\
+						.getContactInfo(LAST_NAME)) << "|"
+				<< std::setw(10) << this->_displayContactAttribute(\
+					this->_contact[i]\
+						.getContactInfo(NICK_NAME)) << "|"
+				<< std::endl;
 			std::cout.exceptions(~std::cout.goodbit);
 		}
 	}
@@ -197,15 +199,14 @@ void	PhoneBook::_getSavedHeader(void) const
  * Display `str` with the expected format.
  * @param str Attribute of Contact object.
  */
-void	PhoneBook::_formatSavedContactAttribute(std::string str) const
+std::string	PhoneBook::_displayContactAttribute(std::string str) const
 {
 	if (str.length() > 10)
 	{
 		str.resize(9);
 		str.append(".");
 	}
-	std::cout << std::setw(10) << str  << "|";
-	std::cout.exceptions(~std::cout.goodbit);
+	return (str);
 };
 
 /**

@@ -35,7 +35,7 @@ class PhoneBook {
 		Contact		_contact[MAX_CONTACTS];
 
 		void		_getSavedContacts(void) const;
-		void		_formatSavedContactAttribute(std::string str) \
+		std::string	_displayContactAttribute(std::string str) \
 					const;
 		std::string	_fillInfo(std::string inPrompt);
 		int		_phoneNumberChecker(const std::string &str, \
