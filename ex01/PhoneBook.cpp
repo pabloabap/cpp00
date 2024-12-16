@@ -6,7 +6,7 @@
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:28:41 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/10 23:28:38 by pabad-ap         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:13:51 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ PhoneBook::PhoneBook(void)
 		<< "EXIT       - Close the PhoneBook lossing all contact." \
 		<< std::endl << std::endl;
 	std::cout.exceptions(~std::cout.goodbit);
-};
+}
 
 /**
  * PhoneBook default destructor. Display inform message and destruct PhoneBook.
@@ -39,7 +39,7 @@ PhoneBook::~PhoneBook(void)
 {
 	std::cout << "PhoneBook destroyed, all contacts removed." << std::endl;
 	std::cout.exceptions(~std::cout.goodbit);
-};
+}
 
 /** 
  * Add new contart to the PhoneBook with the info inputted by the user.
@@ -65,7 +65,7 @@ void PhoneBook::setContact(void)
 	this->_contact[PhoneBook::_contacts_counter % MAX_CONTACTS] = \
 		Contact(first_name, last_name, nick_name, phone, darksecret);
 	PhoneBook::_contacts_counter += 1;
-};
+}
 
 /**
  * Display a table with columns `index`, `_first_name`, `_last_name`
@@ -78,7 +78,7 @@ void PhoneBook::getContact(void) const
 {
 	this->_getSavedContacts();
 	this->_getContactDetails();
-};
+}
 
 /**
  * Request input to user and check if it is empty. In case of empty string
@@ -113,7 +113,7 @@ std::string	PhoneBook::_fillInfo(std::string inPrompt)
 	}
 	std::cin.exceptions(~std::cin.goodbit);
 	return (line);
-};
+}
 
 /** Check if phone number is valid, 9 digits phone, warning the user if not.*/
 int	PhoneBook::_phoneNumberChecker(const std::string &str, \
@@ -136,7 +136,7 @@ int	PhoneBook::_phoneNumberChecker(const std::string &str, \
 		}
 	}
 	return (phone_error_flag);
-};
+}
 
 /** 
  * Display a table with columns `index`, `_first_name`, `_last_name`
@@ -166,7 +166,7 @@ void PhoneBook::_getSavedContacts(void) const
 	}
 	std::resetiosflags (std::ios::right);
 	this->_getSavedFooter();
-};
+}
 
 /**
  * Display the header of [SEARCH] command initial table with saved contacts.
@@ -193,7 +193,7 @@ void	PhoneBook::_getSavedHeader(void) const
 		<< std::setfill(' ') << std::resetiosflags(std::ios::right) \
 		<< std::endl;
 	std::cout.exceptions(~std::cout.goodbit);
-};
+}
 	
 /**
  * Display `str` with the expected format.
@@ -207,7 +207,7 @@ std::string	PhoneBook::_displayContactAttribute(std::string str) const
 		str.append(".");
 	}
 	return (str);
-};
+}
 
 /**
  * Display the footer of [SEARCH] command initial table with saved contacts.
@@ -224,7 +224,7 @@ void	PhoneBook::_getSavedFooter(void) const
 		<< std::endl;
 	std::cout.exceptions(~std::cout.goodbit);
 	std::resetiosflags (std::ios::right);
-};
+}
 
 /**
  * Based on the index inputted by the user, details of the contact asociated 
@@ -251,7 +251,7 @@ void	PhoneBook::_getContactDetails(void) const
 		if (!input.empty())
 			this->_getContactByIndex(input);
 	}
-};
+}
 
 /**
  * Try to convert user's input to int to get a Contat by index. In case of 
@@ -259,13 +259,14 @@ void	PhoneBook::_getContactDetails(void) const
  * it receive the correct input.
  * @param input String with the input received from the user.
  */
-void	PhoneBook::_getContactByIndex(std::string input) const
+void	PhoneBook::_getContactByIndex(const std::string& input) const
 {
-	int		index;
+	std::stringstream	str(input);
+	int					index;
 	
 	try
 	{
-		index = std::stoi(input);
+		str >> index;
 		if(index > 0 && index <= 8 && !this->_contact[index - 1]\
 			.getContactInfo(FIRST_NAME).empty())
 			this->_displayContactDetails(index - 1);
@@ -284,7 +285,7 @@ void	PhoneBook::_getContactByIndex(std::string input) const
 		std::cout.exceptions(~std::cout.goodbit);
 		this->_getContactDetails();
 	}
-};
+}
 
 /**
  * Display details from the contact asociated to `zero_index` Contact from
@@ -304,4 +305,4 @@ void	PhoneBook::_displayContactDetails(int zero_index) const
 		<< "Darkest secret: " << this->_contact[zero_index]\
 			.getContactInfo(DARKEST_SECRET) << std::endl;
 	std::cout.exceptions(~std::cout.goodbit);
-};
+}

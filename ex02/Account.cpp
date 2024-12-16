@@ -1,8 +1,19 @@
-// CABECERA
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/16 11:26:21 by pabad-ap          #+#    #+#             */
+/*   Updated: 2024/12/16 11:34:42 by pabad-ap         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include <stdio.h>
 #include <iostream>
 #include <iomanip>
-#include <ctime>
+#include <time.h>
 #include "Account.hpp"
 
 /** Non-member attributes initialization */
@@ -138,10 +149,12 @@ void	Account::_displayTimestamp( void )
 {
 	time_t		raw_now;
 	struct tm	*local_now;
+	char		buffer[80];
 
 	time(&raw_now);
 	local_now = localtime(&raw_now);
-	std::cout << std::put_time(local_now, "[%Y%m%d_%H%M%S]");
+	strftime (buffer,80,"[%Y%m%d_%H%M%S]",local_now);
+	std::cout << buffer;
 }
 
 /** Check object _amount attribute. */

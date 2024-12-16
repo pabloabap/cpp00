@@ -6,13 +6,13 @@
 #    By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 12:47:07 by pabad-ap          #+#    #+#              #
-#    Updated: 2024/12/10 21:31:55 by pabad-ap         ###   ########.fr        #
+#    Updated: 2024/12/16 11:02:13 by pabad-ap         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= PhoneBook
 CPP			= g++
-CPP_FLAGS	= -Wall -Wextra -Werror -std=98 -pedantic
+CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC		= ./main.cpp	\
 		./Contact.cpp	\
@@ -24,7 +24,10 @@ OBJ		= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CPP) $(CPP_FLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp Makefile %.hpp
+	$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

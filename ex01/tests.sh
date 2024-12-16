@@ -6,4 +6,8 @@ SCRIPT_DIR=$(dirname "$0")
 # Go to script directory
 cd "$SCRIPT_DIR"
 make -s;
-./PhoneBook < ./input.txt
+if [ $# -eq 0 ]
+	then ./PhoneBook < ./input_test.txt
+else
+	./PhoneBook < $1
+fi;

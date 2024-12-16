@@ -6,7 +6,7 @@
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:29:11 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/10 21:33:05 by pabad-ap         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:26:59 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #  define MAX_CONTACTS 8
 # endif
 
-# include <stdlib.h>
+# include <sstream>
+# include <string>
 # include <iomanip>
 # include "Contact.hpp"
 # include "ft_utils.hpp"
@@ -43,7 +44,7 @@ class PhoneBook {
 		void		_getSavedHeader(void) const;
 		void		_getSavedFooter(void) const;
 		void		_getContactDetails(void) const;
-		void		_getContactByIndex(std::string input) const;
+		void		_getContactByIndex(const std::string& input) const;
 		void		_displayContactDetails(int zero_index) const;
 };
 

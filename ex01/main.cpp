@@ -6,7 +6,7 @@
 /*   By: pabad-ap <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:46:25 by pabad-ap          #+#    #+#             */
-/*   Updated: 2024/12/10 22:33:42 by pabad-ap         ###   ########.fr       */
+/*   Updated: 2024/12/16 10:57:43 by pabad-ap         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,4 @@ void	ft_execute(void)
 			std::cout.exceptions(~std::cout.goodbit);
 		}
 	}
-};
+}
