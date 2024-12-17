@@ -148,18 +148,15 @@ void PhoneBook::_getSavedContacts(void) const
 	std::setiosflags (std::ios::right);
 	for (int i = 0; i < MAX_CONTACTS; ++i)
 	{
-		if (!this->_contact[i].getContactInfo(FIRST_NAME).empty())
+		if (!this->_contact[i].getFirstName().empty())
 		{
 			std::cout << "|" << std::setw(10) << i + 1 << "|"
 				<< std::setw(10) << this->_displayContactAttribute(\
-					this->_contact[i]\
-						.getContactInfo(FIRST_NAME)) << "|"
+					this->_contact[i].getFirstName()) << "|"
 				<< std::setw(10) << this->_displayContactAttribute(\
-					this->_contact[i]\
-						.getContactInfo(LAST_NAME)) << "|"
+					this->_contact[i].getLastName()) << "|"
 				<< std::setw(10) << this->_displayContactAttribute(\
-					this->_contact[i]\
-						.getContactInfo(NICK_NAME)) << "|"
+					this->_contact[i].getNickname()) << "|"
 				<< std::endl;
 			std::cout.exceptions(~std::cout.goodbit);
 		}
@@ -235,7 +232,7 @@ void	PhoneBook::_getContactDetails(void) const
 {
 	std::string	input;
 
-	if (this->_contact[0].getContactInfo(FIRST_NAME).empty())
+	if (this->_contact[0].getFirstName().empty())
 	{
 		std::cout << "Empty PhoneBook, `ADD` contacts first." \
 			<< std::endl;
@@ -268,7 +265,7 @@ void	PhoneBook::_getContactByIndex(const std::string& input) const
 	{
 		str >> index;
 		if(index > 0 && index <= 8 && !this->_contact[index - 1]\
-			.getContactInfo(FIRST_NAME).empty())
+			.getFirstName().empty())
 			this->_displayContactDetails(index - 1);
 		else
 		{
@@ -295,14 +292,14 @@ void	PhoneBook::_getContactByIndex(const std::string& input) const
 void	PhoneBook::_displayContactDetails(int zero_index) const
 {
 	std::cout << "First name: " << this->_contact[zero_index]\
-			.getContactInfo(FIRST_NAME) << std::endl \
+			.getFirstName() << std::endl \
 		<< "Last name: " << this->_contact[zero_index]\
-			.getContactInfo(LAST_NAME) << std::endl \
+			.getLastName() << std::endl \
 		<< "Nickname: " << this->_contact[zero_index]\
-			.getContactInfo(NICK_NAME) << std::endl \
+			.getNickname() << std::endl \
 		<< "Phone number: " << this->_contact[zero_index]\
-			.getContactInfo(PHONE_NUMBER) << std::endl \
+			.getPhoneNumber() << std::endl \
 		<< "Darkest secret: " << this->_contact[zero_index]\
-			.getContactInfo(DARKEST_SECRET) << std::endl;
+			.getDarkestSecret() << std::endl;
 	std::cout.exceptions(~std::cout.goodbit);
 }

@@ -41,24 +41,46 @@ Contact::~Contact(void) {
 }
 
 /**
- * Return a string with the `attribute` of the contact specified as argument.
- * @param `attribute` Item from `e_attribute` enum from `ft_utils.hpp`.
- * @return Content of the attribute as string.
+ * Getter `_first_name` attribute.
+ * @return `_first_name` attribute.
  */
-std::string	Contact::getContactInfo(int attribute) const
-{	
-	std::string output;
+std::string 	Contact::getFirstName( void ) const
+{
+	return (this->_first_name);
+}
 
-	output = "\0";
-	if (FIRST_NAME == attribute)
-		output = this->_first_name;
-	else if (LAST_NAME == attribute)
-		output = this->_last_name;
-	else if (NICK_NAME == attribute)
-		output = this->_nickname;
-	else if (PHONE_NUMBER == attribute)
-		output = this->_phone_number;
-	else if (DARKEST_SECRET == attribute)
-		output = this->_darkest_secret;
-	return (output);
+/**
+ * Getter `_last_name` attribute.
+ * @return `_last_name` attribute.
+ */
+std::string 	Contact::getLastName( void ) const
+{
+	return (this->_last_name);
+}
+
+/**
+ * Getter `_nickname` attribute.
+ * @return `_nickname` attribute.
+ */
+std::string 	Contact::getNickname( void ) const
+{
+	return (this->_nickname);
+}
+
+/**
+ * Getter `_phone_number` attribute.
+ * @return `_phone_number` attribute.
+ */
+std::string 	Contact::getPhoneNumber( void ) const
+{
+	return (this->_phone_number);
+}
+
+/**
+ * Getter `_darkest_secret` attribute.
+ * @return `_darkest_secret` attribute.
+ */
+std::string 	Contact::getDarkestSecret( void ) const
+{
+	return (this->_darkest_secret);
 }
