@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME		= bankLogs
-CPP		= g++
+CPP			= c++
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC		= ./Account.cpp ./tests.cpp

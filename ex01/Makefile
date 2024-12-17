@@ -10,16 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= PhoneBook
-CPP			= g++
-CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
+NAME		=	PhoneBook
+CPP			=	c++
+CPP_FLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRC		= ./main.cpp	\
-		./Contact.cpp	\
-		./PhoneBook.cpp	\
-		./ft_utils.cpp
+	SRC		= 	./main.cpp	\
+				./Contact.cpp	\
+				./PhoneBook.cpp	\
+				./ft_utils.cpp
 
-OBJ		= $(SRC:.cpp=.o)
+OBJ			= $(SRC:.cpp=.o)
 
 all: $(NAME)
 

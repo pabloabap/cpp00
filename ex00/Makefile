@@ -11,18 +11,21 @@
 # **************************************************************************** #
 
 NAME		= megaphone
-CPP		= g++
+CPP			= c++
 CPP_FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
 
 
 SRC		= ./megaphone.cpp
 
-OBJ		=  $(patsubst %.cpp, %.o, $(SRC))
+OBJ		=  $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CPP) $(CPP_FLAGS) $< -o $@
+
+%.o: %.cpp Makefile
+	$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
